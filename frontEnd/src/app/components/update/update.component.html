@@ -1,0 +1,19 @@
+<div>
+    <br>
+    <mat-card>
+      <section class="mat-typography">
+        <h3>Update a record</h3>
+      </section>
+      <mat-divider></mat-divider>
+      <br>
+      <form [formGroup]="createForm" class="create-form">
+        <mat-form-field class=field-full-width>
+          <input matInput placeholder="Url" formControlName="url" #url>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <br><br>
+        <button mat-raised-button color="accent" routerLink="/list">Back</button>
+        <button type="submit" (click)="addResult(url.value)" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">Submit</button>
+      </form>
+    </mat-card>
+  </div>

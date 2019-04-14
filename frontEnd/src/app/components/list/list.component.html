@@ -1,0 +1,85 @@
+<div>
+  <br>
+  <mat-card>
+    <button mat-raised-button color="primary" routerLink="/create">Search for a new website</button>
+    <br><br>
+    <mat-divider></mat-divider>
+    <br>
+    <table mat-table [dataSource]="records" matSort>
+      
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matheaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="url">
+        <th mat-header-cell *matheaderCellDef>Url</th>
+        <td mat-cell *matCellDef="let element"> {{element.url}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matheaderCellDef>Category</th>
+        <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+          <th mat-header-cell *matheaderCellDef class="mat-column-right">Actions</th>
+          <td mat-cell *matCellDef="let element" class="mat-column-right"> 
+            <button mat-button color="primary" (click)="editRecord(element._id)">Edit</button> 
+            <button mat-button color="warm" (click)="deleteRecord(element._id)">Delete</button> 
+            <button mat-button color="accent" (click)="updateRecord(element._id)">Update</button>   
+          </td>
+        </ng-container>
+
+        
+        <tr mat-row *matRowDef="let row; columns:displayedColumns;"></tr>
+      </table>
+      
+  </mat-card>
+</div>
+
+<ng-template #loading>
+  Loading records..
+</ng-template>
+
+ 
+
+<!-- 
+  <div>
+      <br>
+      <mat-card>
+        <button mat-raised-button color="primary" routerLink="/create">Create New Issue</button>
+        <br><br>
+        <mat-divider></mat-divider>
+        <br>
+        <table mat-table [dataSource]="records">
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matheaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="url">
+                <th mat-header-cell *matheaderCellDef>Url</th>
+                <td mat-cell *matCellDef="let element"> {{element.url}} </td>
+              </ng-container>
+        
+              <ng-container matColumnDef="category">
+                <th mat-header-cell *matheaderCellDef>Category</th>
+                <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+              </ng-container>
+        
+              <ng-container matColumnDef="actions">
+                  <th mat-header-cell *matheaderCellDef class="mat-column-right">Actions</th>
+                  <td mat-cell *matCellDef="let element" class="mat-column-right"> 
+                    <button mat-button color="primary" (click)="editRecord(element._id)">Edit</button> 
+                    <button mat-button color="warm" (click)="deleteRecord(element._id)">Delete</button> 
+                    <button mat-button color="accent" (click)="updateRecord(element._id)">Update</button>   
+                  </td>
+                </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+        </table>
+      </mat-card>
+    </div> -->
